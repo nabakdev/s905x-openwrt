@@ -81,9 +81,8 @@ jobs:
       - name: Release the firmware
         uses: ncipollo/release-action@main
         if: steps.build.outputs.status == 'success' && !cancelled()
-        working-directory: ${{ env.WORKING_DIR }}
         with:
           tag: ${{ env.OPENWRT_BRANCH }}_S905X_${{ env.BUILD_DATE }}
-          artifacts: out/*
+          artifacts: ${{ env.WORKING_DIR }}/out/*
           allowUpdates: true
           token: ${{ secrets.GH_TOKEN }}
