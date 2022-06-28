@@ -46,6 +46,8 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
+          echo "Processing units: $(nproc)"
+          echo
           sudo -E apt-get -qq update
           sudo -E apt-get -qq install $REQUIRED_PACKAGES
           sudo -E apt-get -qq autoremove --purge
