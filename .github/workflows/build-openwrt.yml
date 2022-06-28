@@ -1,7 +1,7 @@
 name: Build Openwrt for Amlogic s905x
 
 on:
-  # workflow_dispatch
+  workflow_dispatch:
   repository_dispatch:
 
 env:
