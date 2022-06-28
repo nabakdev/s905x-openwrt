@@ -45,8 +45,6 @@ jobs:
         run: |
           [ -e $CONFIG_DIR ] && cp -rf $CONFIG_DIR/. .
           [ -e ./pre-build.sh ] && chmod +x pre-build.sh && ./pre-build.sh
-          grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
-          [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
 
       - name: Update feeds
         working-directory: ${{ env.WORKING_DIR }}/openwrt
@@ -85,7 +83,7 @@ jobs:
         if: steps.build.outputs.status == 'success' && !cancelled()
         working-directory: ${{ env.WORKING_DIR }}
         with:
-          tag: ${{ DEVICE_NAME }}_${{ env.OPENWRT_BRANCH }}_${{ env.BUILD_DATE }}
+          tag: ${{ env.OPENWRT_BRANCH }}_S905X_${{ env.BUILD_DATE }}
           artifacts: out/*
           allowUpdates: true
           token: ${{ secrets.GH_TOKEN }}
