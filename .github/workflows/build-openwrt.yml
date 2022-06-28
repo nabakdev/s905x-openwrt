@@ -81,9 +81,9 @@ jobs:
           echo "::set-output name=status::success"
 
       - name: Release the firmware
+        uses: ncipollo/release-action@main
         if: steps.build.outputs.status == 'success' && !cancelled()
         working-directory: ${{ env.WORKING_DIR }}
-        uses: ncipollo/release-action@main
         with:
           tag: ${{ DEVICE_NAME }}_${{ env.OPENWRT_BRANCH }}_${{ env.BUILD_DATE }}
           artifacts: out/*
