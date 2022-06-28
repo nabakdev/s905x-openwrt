@@ -6,7 +6,7 @@ on:
 
 env:
   CONFIG_DIR: config
-  OPENWRT_BRANCH: ${{ GITHUB_REF_NAME }}
+  OPENWRT_BRANCH: ${{ github.ref_name }}
   OPENWRT_REPOSITORY: https://github.com/openwrt/openwrt
   REQUIRED_PACKAGES: build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils zlib1g-dev
   TZ: Asia/Jakarta
