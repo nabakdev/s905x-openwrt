@@ -41,9 +41,9 @@ jobs:
           git clone --depth 1 -b "$OPENWRT_BRANCH" --single-branch "$OPENWRT_REPOSITORY" openwrt
 
       - name: Copy configs
-        working-directory: ${{ env.WORKING_DIR }}/openwrt
         run: |
-          [ -e $CONFIG_DIR ] && cp -rf $CONFIG_DIR/* . && cp -f $CONFIG_DIR/.config .
+          [ -e $CONFIG_DIR ] && cp -rf $CONFIG_DIR/* ${{ env.WORKING_DIR }}/openwrt/ && cp -f $CONFIG_DIR/.config ${{ env.WORKING_DIR }}/openwrt/
+          cd ${{ env.WORKING_DIR }}/openwrt
           [ -e ./pre-build.sh ] && chmod +x pre-build.sh && ./pre-build.sh
 
       - name: Update feeds
