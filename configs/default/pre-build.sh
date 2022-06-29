@@ -8,7 +8,7 @@ svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/
 sed -i "s|https.*/OpenWrt|https://github.com/nabakdev/s905x-openwrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # 2.Set the keywords of Tags in your github.com Releases
-sed -i "s|ARMv8|s905x_openwrt|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|ARMv8|openwrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # 3.Set the suffix of the OPENWRT files in your github.com Releases
 # sed -i "s|.img.gz|.OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
