@@ -100,14 +100,14 @@ jobs:
           mkdir -p openwrt-armvirt
           cp openwrt/bin/targets/*/*/*rootfs.tar.gz openwrt-armvirt
           sudo ./make -b s905x -k ${{ github.event.inputs.openwrt_kernel }} -a true -v stable
-          echo "BUILD_DATE=$(date +"%Y-%m-%d.%H%M")" >> $GITHUB_ENV
+          echo "BUILD_DATE=$(date +"%m%d")" >> $GITHUB_ENV
           echo "::set-output name=status::success"
 
       - name: Release the firmware
         uses: ncipollo/release-action@main
         if: steps.build.outputs.status == 'success' && !cancelled()
         with:
-          tag: ${{ github.event.inputs.openwrt_branch }}
+          tag: ${{ github.event.inputs.openwrt_branch }}_k${{ github.event.inputs.openwrt_kernel }}_${{ env.BUILD_DATE }}
           artifacts: ${{ env.WORKING_DIR }}/out/*
           allowUpdates: true
           token: ${{ secrets.GH_TOKEN }}
