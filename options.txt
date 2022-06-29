@@ -1,0 +1,81 @@
+target system -> QEMU ARM Virtual Machine
+sub target -> QEMU ARMv8 virtual Machine (cortex-a53)
+target profile -> default
+target Images -> tar.gz
+
+base system ->
+  -> bridge
+
+Kernel modules ->
+  USB Support ->
+    -> kmod-usb-acm
+    -> kmod-usb-dwc2
+    -> kmod-usb-dwc3
+    -> kmod-usb-net*
+    -> kmod-usb-storage*
+    -> kmod-usb-serial*
+    -> kmod-usb-ohci
+    -> kmod-usb-ohci-pci
+    -> kmod-usb-uhci
+    -> kmod-usb2
+    -> kmod-usb2-pci
+    -> kmod-usb3
+  Wireless Drivers ->
+    -> kmod-brcmfmac(SDIO)
+    -> kmod-mac80211
+
+languages -> perl ->
+  -> perl-http-date
+  -> perlbase-getopt
+  -> perlbase-unicode
+
+Network ->
+  WirelessAPD ->
+    -> wpad-basic
+    -> wpa-cli
+
+Luci ->
+  Collections ->
+    -> luci
+  Modules ->
+    -> luci-compat
+    -> luci-mod-dashboard
+  Applications ->
+    -> luci-app-amlogic
+  Themes ->
+    -> luci-theme-argon
+  Protocols
+    -> luci-proto-3g
+    -> luci-proto-modemmanager
+
+Utilities ->
+  Disc ->
+    -> blkid
+    -> fdisk
+    -> lsblk
+    -> parted
+  Filesystem ->
+    -> attr
+    -> btrfs-progs(Build with zstd support)
+    -> chattr
+    -> dosfstools
+    -> f2fs-tools
+    -> lsattr
+    -> xfs-fsck
+    -> xfs-mkfs
+  Compression ->
+    -> bsdtar
+    -> pigz
+  Shells ->
+    ->bash
+  -> coremark
+  -> gawk
+  -> getopt
+  -> losetup
+  -> pv
+  -> tar
+  -> usb-modeswitch
+  -> uuidgen
+  -> coreutils ->
+      -> coreutils-base64
+      -> coreutils-nohup
