@@ -21,11 +21,9 @@ Kernel modules ->
     -> kmod-usb2-pci
     -> kmod-usb3
   Wireless Drivers ->
-    -> kmod-ath6kl-usb
     -> kmod-ath9k-htc
     -> kmod-brcmfmac(SDIO)
     -> kmod-mac80211
-    -> kmod-lib80211
     -> kmod-rt2500-usb
     -> kmod-rt73-usb
 
@@ -33,11 +31,6 @@ languages -> perl ->
   -> perl-http-date
   -> perlbase-getopt
   -> perlbase-unicode
-
-Network ->
-  WirelessAPD ->
-    -> wpad-basic
-    -> wpa-cli
 
 Luci ->
   Collections ->
@@ -49,9 +42,11 @@ Luci ->
     -> luci-app-amlogic
   Themes ->
     -> luci-theme-argon
-  Protocols
-    -> luci-proto-3g
-    -> luci-proto-modemmanager
+
+Network ->
+  WirelessAPD ->
+    -> wpad-basic
+    -> wpa-cli
 
 Utilities ->
   Disc ->
@@ -79,7 +74,6 @@ Utilities ->
   -> losetup
   -> pv
   -> tar
-  -> usb-modeswitch
   -> uuidgen
   -> coreutils ->
       -> coreutils-base64
